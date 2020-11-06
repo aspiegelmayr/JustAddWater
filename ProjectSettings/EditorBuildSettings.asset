@@ -4,5 +4,26 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 60ce435749e4f4487891952fa0256aab
+  - enabled: 1
+    path: Assets/Scenes/BrokenPipeRoom.unity
+    guid: 258600556b5fa4432a3e5f1ec109ab33
+  - enabled: 1
+    path: Assets/Scenes/Cafeteria.unity
+    guid: 8a4632542f3184dd6a1b538eec722890
+  - enabled: 1
+    path: Assets/Scenes/HammockRoom.unity
+    guid: faf5c3ee384004d8996c620062f1bacd
+  - enabled: 1
+    path: Assets/Scenes/Kitchen.unity
+    guid: 933cf61a5383b4bf78443bbfcab95b5a
+  - enabled: 1
+    path: Assets/Scenes/MainRoom.unity
+    guid: a54c98aa5dc114aa2ad5f7b2b2313229
+  - enabled: 1
+    path: Assets/Scenes/MedicineRoom.unity
+    guid: 68e41b38858004c2c9d66c8374f43d11
   m_configObjects: {}
