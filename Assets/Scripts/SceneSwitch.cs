@@ -38,4 +38,9 @@ public class SceneSwitch : MonoBehaviour
     {
         SceneManager.LoadScene("StartScene");
     }
+
+    public void GoToPipeMinigame()
+    {
+        SceneManager.LoadScene("PipeMinigame");
+    }
 }

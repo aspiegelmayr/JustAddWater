@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MedicineRoom.unity
     guid: 68e41b38858004c2c9d66c8374f43d11
+  - enabled: 1
+    path: Assets/Scenes/PipeMinigame.unity
+    guid: 19f33e739fe6f4579b79cfdb9eaa5269
   m_configObjects: {}
