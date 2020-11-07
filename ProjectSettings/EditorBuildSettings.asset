@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PipeMinigame.unity
     guid: 19f33e739fe6f4579b79cfdb9eaa5269
+  - enabled: 1
+    path: Assets/Scenes/SlidingPuzzle.unity
+    guid: d47a6b3fbe2cd40928ff09da457f97db
   m_configObjects: {}

@@ -43,4 +43,9 @@ public class SceneSwitch : MonoBehaviour
     {
         SceneManager.LoadScene("PipeMinigame");
     }
+
+    public void GoToSlidingPuzzleMinigame()
+    {
+        SceneManager.LoadScene("SlidingPuzzle");
+    }
 }

@@ -2,9 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Web;
 
 public class ProtagonistActions : MonoBehaviour
 {
+    public TextAsset textFile;
+    
+    public string jsonFilePath;
+
+    public GameObject speechBubble;
+    public Button hideSpeechBubbleBtn;
+    public bool speechBubbleShown;
+
     public Button[] inventorySpaces;
 
     public GameObject inventory;
@@ -30,6 +39,12 @@ public class ProtagonistActions : MonoBehaviour
 
         menuShown = false;
         menu.SetActive(false);
+
+        if(speechBubble != null)
+        speechBubble.SetActive(true);
+
+        AddButtonListeners();
+        GetDialogues();
     }
 
     // Update is called once per frame
@@ -44,12 +59,33 @@ public class ProtagonistActions : MonoBehaviour
         {
             ToggleMenu();
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ToggleSpeechBox();
+        }
     }
 
     void AddButtonListeners()
     {
         tutorialBtn.onClick.AddListener (OpenTutorial);
         quitBtn.onClick.AddListener (CloseGame);
+        if(hideSpeechBubbleBtn != null){
+            hideSpeechBubbleBtn.onClick.AddListener(ToggleSpeechBox);
+        }
+    }
+
+    void ToggleSpeechBox(){
+         if (!speechBubbleShown)
+        {
+            speechBubble.SetActive(true);
+            speechBubbleShown = true;
+        }
+        else
+        {
+            speechBubble.SetActive(false);
+            speechBubbleShown = false;
+        }
     }
 
     void OpenTutorial()
@@ -89,5 +125,8 @@ public class ProtagonistActions : MonoBehaviour
             menu.SetActive(false);
             menuShown = false;
         }
+    }
+    void GetDialogues(){
+        
     }
 }
