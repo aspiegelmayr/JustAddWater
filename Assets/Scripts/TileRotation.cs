@@ -46,7 +46,6 @@ public class TileRotation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("R");
             RotateLeft();
         }
     }
