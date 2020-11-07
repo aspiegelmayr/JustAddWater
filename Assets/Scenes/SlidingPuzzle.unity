@@ -217,104 +217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3497d5d5ef954df79db2e963f4641b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 0}
+  tile: {fileID: 2765379732794995125, guid: 65ff5d3972e85425f824c4fc81d51595, type: 3}
   collisionMask:
     serializedVersion: 2
     m_Bits: 256
---- !u!1001 &1059952109
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.5286
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7936
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640108230343536855, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9036564918667665799, guid: 65ff5d3972e85425f824c4fc81d51595,
-        type: 3}
-      propertyPath: m_Name
-      value: PuzzleTile
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 65ff5d3972e85425f824c4fc81d51595, type: 3}
---- !u!1 &1059952110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9036564918667665799, guid: 65ff5d3972e85425f824c4fc81d51595,
-    type: 3}
-  m_PrefabInstance: {fileID: 1059952109}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1059952111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059952110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe844f50888141f793ffea2b1948438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clicked: 0
-  moved: 0
-  moveUp: 0
-  moveDown: 0
-  moveLeft: 0
-  moveRight: 0
-  moveAmount: 0
+  image: {fileID: 2800000, guid: a8a464d2840074ed4912edcb364f2bdf, type: 3}
 --- !u!1 &1372579532
 GameObject:
   m_ObjectHideFlags: 0
