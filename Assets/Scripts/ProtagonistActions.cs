@@ -19,6 +19,10 @@ public class ProtagonistActions : MonoBehaviour
 
     public bool menuShown;
 
+    public static bool sliderPuzzleWon;
+
+    public static bool PipePuzzleWon;
+
     void Start()
     {
         inventoryShown = false;

@@ -127,6 +127,7 @@ public class TileRotation : MonoBehaviour
             if (CheckSolution())
             {
                 gameIsActive = false;
+                ProtagonistActions.PipePuzzleWon = true;
                 Debug.Log("game won");
             }
             else
