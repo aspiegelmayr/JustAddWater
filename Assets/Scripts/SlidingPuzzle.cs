@@ -9,9 +9,9 @@ public class SlidingPuzzle : MonoBehaviour
 
     private List<PuzzleTile> puzzleTiles = new List<PuzzleTile>();
 
-    private Vector2 startPosition = new Vector2(-3.55f, 2f);
+    private Vector2 startPosition = new Vector2(-3.0f, 4.1f);
 
-    private Vector2 offset = new Vector2(2.2f, 2.2f);
+    private Vector2 offset = new Vector2(3.0f, 3.0f);
 
     public LayerMask collisionMask;
 
@@ -43,7 +43,9 @@ public class SlidingPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!CheckWin()){
         MovePuzzle();
+        }
     }
 
     void CreatePuzzle()
@@ -179,6 +181,7 @@ public class SlidingPuzzle : MonoBehaviour
                 )
                 {
                     tile.moveLeft = true;
+                    
                 }
             }
         }
@@ -190,5 +193,27 @@ public class SlidingPuzzle : MonoBehaviour
             puzzleTiles[i].GetComponent<Renderer>().material.mainTexture = images[i];
         }
         
+    }
+
+    bool CheckWin(){
+        //position0: -3, 4.1
+        //pos1: 0, 4.1
+        // pos2: 3, 4.1
+        // -3, 1.1
+        // 0, 1.1
+        // 3, 1.1
+        // -3, -1.9
+        // 0, -1.9
+        if(puzzleTiles[0].transform.position.x == -3 && puzzleTiles[0].transform.position.y == 4.1 &&
+        puzzleTiles[1].transform.position.x == -0 && puzzleTiles[1].transform.position.y == 4.1 &&
+        puzzleTiles[2].transform.position.x == 3 && puzzleTiles[3].transform.position.y == 4.1 &&
+        puzzleTiles[3].transform.position.x == -3 && puzzleTiles[3].transform.position.y == 1.1 &&
+        puzzleTiles[4].transform.position.x == 0 && puzzleTiles[4].transform.position.y == 1.1 &&
+        puzzleTiles[5].transform.position.x == 3 && puzzleTiles[5].transform.position.y == 1.1 &&
+        puzzleTiles[6].transform.position.x == -3 && puzzleTiles[6].transform.position.y == -1.9 &&
+        puzzleTiles[7].transform.position.x == 0 && puzzleTiles[7].transform.position.y == -1.9){
+            return true;
+        }
+        return false;
     }
 }
