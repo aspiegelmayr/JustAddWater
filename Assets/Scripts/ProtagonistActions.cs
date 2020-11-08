@@ -12,7 +12,7 @@ public class ProtagonistActions : MonoBehaviour
 
     public GameObject speechBubble;
     public Button hideSpeechBubbleBtn;
-    public bool speechBubbleShown;
+    public static bool speechBubbleShown;
 
     public Button[] inventorySpaces;
 
@@ -32,6 +32,7 @@ public class ProtagonistActions : MonoBehaviour
 
     public static bool PipePuzzleWon;
 
+
     void Start()
     {
         inventoryShown = false;
@@ -44,7 +45,6 @@ public class ProtagonistActions : MonoBehaviour
         speechBubble.SetActive(true);
 
         AddButtonListeners();
-        GetDialogues();
     }
 
     // Update is called once per frame
@@ -75,7 +75,7 @@ public class ProtagonistActions : MonoBehaviour
         }
     }
 
-    void ToggleSpeechBox(){
+    public void ToggleSpeechBox(){
          if (!speechBubbleShown)
         {
             speechBubble.SetActive(true);
@@ -125,8 +125,5 @@ public class ProtagonistActions : MonoBehaviour
             menu.SetActive(false);
             menuShown = false;
         }
-    }
-    void GetDialogues(){
-        
     }
 }
