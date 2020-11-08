@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MedicineRoomDialogue : MonoBehaviour
 {
-    private List<Quote> responses = new List<Quote>();
+    private List<Quote> responses;
 
     public Text name;
 
@@ -27,11 +27,32 @@ public class MedicineRoomDialogue : MonoBehaviour
 
     void Start()
     {
-        int dialogueNumber = PlayerPrefs.GetInt("MedicineRoomDialogue");
+        this.responses = new List<Quote>();
         speechBox.SetActive(false);
         index = 0;
-        if (dialogueNumber == null || dialogueNumber < 2)
-        {
+        triggerBabsi.onClick.AddListener(SetDialogueBabsi);
+        triggerUschi.onClick.AddListener(SetDialogueUschi);
+        next.onClick.AddListener (ShowNext);
+    }
+
+    void SetDialogueBabsi(){
+       int number = PlayerPrefs.GetInt("MedicineRoomDialogue");
+        if(number == 0 || number == 1) {
+            SetFirstDialogue();
+        } else {
+            SetOtherDialogue("Babsi");
+        } 
+    }
+
+    void SetDialogueUschi(){
+       int number = PlayerPrefs.GetInt("MedicineRoomDialogue");
+        if(number == 0 || number == 1) {
+            SetFirstDialogue();
+        } else {
+            SetOtherDialogue("Uschi");
+        } 
+    }
+        void SetFirstDialogue(){
             this
                 .responses
                 .Add(new Quote("Uschi",
@@ -63,18 +84,43 @@ public class MedicineRoomDialogue : MonoBehaviour
                 .responses
                 .Add(new Quote("Kohlkopf",
                     "Uh oh, besser ich mische mich nicht ein. Aber wo könnte der Schlüssel sein?"));
-        } else {
-            this.responses.Add(new Quote("bye", "bbye"));
+                ShowFirstText();
         }
-        trigger.onClick.AddListener (ShowFirstText);
-        next.onClick.AddListener (ShowNext);
-    }
 
     void ShowFirstText()
     {
+        index = 0;
         speechBox.SetActive(true);
         name.text = responses[index].name;
         text.text = responses[index].text;
+    }
+
+    void SetOtherDialogue(string withCharacter)
+    {
+        if (PlayerPrefs.GetInt("MedicineRoomDialogue") == 2)
+        {
+            if(withCharacter == "Uschi"){
+                if(PlayerPrefs.GetInt("HasKey") == 1){
+                    this.responses.Clear();
+                this.responses.Add(new Quote("Uschi", "Putzen, putzen, putzen."));
+                this.responses.Add(new Quote("Uschi", "Fast so schlimm wie das 82er Desaster."));
+                this.responses.Add(new Quote("Kohlkopf", "Das was?"));
+                } else {
+                    this.responses.Clear();
+                this.responses.Add(new Quote("Uschi", "Babsi is grade voll blöde."));
+                this.responses.Add(new Quote("Kohlkopf", "Na wenn du das sagst."));
+                }
+            } else {
+                this.responses.Clear();
+                this.responses.Add(new Quote("Babsi", "Oh hallo, kleine Knolle. Würdest du gerne mal ..."));
+                this.responses.Add(new Quote("Babsi", "... mit mir ..."));
+                this.responses.Add(new Quote("Babsi", "..."));
+                this.responses.Add(new Quote("Babsi", "Zahnarzt spielen?"));
+                this.responses.Add(new Quote("Kohlkopf", "Tut mir leid Babsi, aber ..."));
+                this.responses.Add(new Quote("Kohlkopf", "... deine Handkreissäge kommt mir etwas gefährlich vor."));
+            }
+        }
+        ShowFirstText();
     }
 
     void ShowNext()
