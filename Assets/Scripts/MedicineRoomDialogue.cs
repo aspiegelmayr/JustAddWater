@@ -25,14 +25,61 @@ public class MedicineRoomDialogue : MonoBehaviour
 
     public bool keyInInventory;
 
+    private bool notDone;
+
+    public Button pills1;
+
+    public Button pills2;
+
+    private int numberOfPills;
+
     void Start()
     {
         this.responses = new List<Quote>();
         speechBox.SetActive(false);
+        numberOfPills = 0;
         index = 0;
         triggerBabsi.onClick.AddListener(SetDialogueBabsi);
         triggerUschi.onClick.AddListener(SetDialogueUschi);
         next.onClick.AddListener (ShowNext);
+        pills1.onClick.AddListener(GrabLeftPills);
+        pills2.onClick.AddListener(GrabRightPills);
+        //TODO: Add SliderPuzzleSolved = 0 ] 1 to playerprefs
+        if(PlayerPrefs.GetInt("SliderPuzzleSolved") == 1){
+            pills1.enabled = true;
+            pills2.enabled = true;
+        }
+    }
+
+    void GrabLeftPills(){
+        if(numberOfPills == 0){
+            numberOfPills = 1;
+        }
+        if(!PlayerPrefs.HasKey("numberOfPills") || PlayerPrefs.GetInt("numberOfPills") == 0){
+            PlayerPrefs.SetInt("numberOfPills", 1);
+            PlayerPrefs.SetInt("HammockRoomDialogue", 5);
+            PlayerPrefs.Save(); //TODO: Text
+            } else {
+                PlayerPrefs.SetInt("numberOfPills", 2);
+                PlayerPrefs.SetInt("HammockRoomDialogue", 6);
+                PlayerPrefs.Save();
+            }
+        PlayerPrefs.SetInt("LeftPills", 1);
+        PlayerPrefs.Save();
+    }
+
+    void GrabRightPills(){
+        if(!PlayerPrefs.HasKey("numberOfPills") || PlayerPrefs.GetInt("numberOfPills") == 0){
+            PlayerPrefs.SetInt("numberOfPills", 1);
+            PlayerPrefs.SetInt("HammockRoomDialogue", 5);
+            PlayerPrefs.Save();
+            } else {
+                PlayerPrefs.SetInt("numberOfPills", 2);
+                PlayerPrefs.SetInt("HammockRoomDialogue", 6);
+                PlayerPrefs.Save();
+            }
+        PlayerPrefs.SetInt("RightPills", 1);
+        PlayerPrefs.Save();
     }
 
     void SetDialogueBabsi(){
@@ -100,16 +147,32 @@ public class MedicineRoomDialogue : MonoBehaviour
         if (PlayerPrefs.GetInt("MedicineRoomDialogue") == 2)
         {
             if(withCharacter == "Uschi"){
-                if(PlayerPrefs.GetInt("HasKey") == 1){
-                    this.responses.Clear();
+                this.responses.Clear();
+                this.responses.Add(new Quote("Uschi", "Babsi is grade voll blöde."));
+                this.responses.Add(new Quote("Kohlkopf", "Na wenn du das sagst."));
+                notDone = true;
+                }
+            } else {
+                this.responses.Clear();
+                this.responses.Add(new Quote("Babsi", "..."));
+            }
+            if(PlayerPrefs.GetInt("MedicineRoomDialogue") == 3){
+                notDone = false;
+                this.responses.Clear();
+                this.responses.Add(new Quote("Babsi", "Wo hat die Alte jetzt den Schlüssel verschludert?"));
+                this.responses.Add(new Quote("Uschi", "Wie hast du mich genannt?!"));
+                this.responses.Add(new Quote("Babsi", "Ugh! Sei still!"));
+                this.responses.Add(new Quote("Kohlkopf", "Einfach nicht darauf reagieren, einfach den Job erledigen. *sperrt Tür auf*"));
+                this.responses.Add(new Quote("Uschi", "Endlich kann ich da drin sauber machen. Gut gemacht, Kohli."));
+                this.responses.Add(new Quote("Babsi", "Wenigstens bin ich sie jetzt los. Danke, mein Lieber."));
+            }
+
+
+        if(PlayerPrefs.GetInt("MedicineRoomDialogue") == 4){
+            if(withCharacter == "Uschi"){
                 this.responses.Add(new Quote("Uschi", "Putzen, putzen, putzen."));
                 this.responses.Add(new Quote("Uschi", "Fast so schlimm wie das 82er Desaster."));
                 this.responses.Add(new Quote("Kohlkopf", "Das was?"));
-                } else {
-                    this.responses.Clear();
-                this.responses.Add(new Quote("Uschi", "Babsi is grade voll blöde."));
-                this.responses.Add(new Quote("Kohlkopf", "Na wenn du das sagst."));
-                }
             } else {
                 this.responses.Clear();
                 this.responses.Add(new Quote("Babsi", "Oh hallo, kleine Knolle. Würdest du gerne mal ..."));
@@ -119,7 +182,9 @@ public class MedicineRoomDialogue : MonoBehaviour
                 this.responses.Add(new Quote("Kohlkopf", "Tut mir leid Babsi, aber ..."));
                 this.responses.Add(new Quote("Kohlkopf", "... deine Handkreissäge kommt mir etwas gefährlich vor."));
             }
+            
         }
+        if(PlayerPrefs.GetInt("HasKey") == 1 )
         ShowFirstText();
     }
 
@@ -133,8 +198,16 @@ public class MedicineRoomDialogue : MonoBehaviour
         }
         else
         {
+            if(PlayerPrefs.GetInt("MedicineRoomDialogue") == 1){
             PlayerPrefs.SetInt("MedicineRoomDialogue", 2);
+            PlayerPrefs.SetInt("HammockRoomDialogue", 3);
             PlayerPrefs.Save();
+            notDone = true;
+            } else if (!notDone){
+                int newIndex = PlayerPrefs.GetInt("MedicineRoomDialogue") +1;
+                PlayerPrefs.SetInt("MedicineRoomDialogue", newIndex);
+                PlayerPrefs.Save();
+            }
             speechBox.SetActive(false);
         }
     }
