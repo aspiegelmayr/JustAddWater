@@ -29,7 +29,11 @@ public class MedicineRoomDialogue : MonoBehaviour
 
     public Button pills1;
 
+    public Image pills1Img;
+
     public Button pills2;
+
+    public Image pills2Img;
 
     private int numberOfPills;
 
@@ -45,8 +49,15 @@ public class MedicineRoomDialogue : MonoBehaviour
         pills1.onClick.AddListener(GrabLeftPills);
         pills2.onClick.AddListener(GrabRightPills);
         if(PlayerPrefs.GetInt("SliderPuzzleSolved") == 1){
+            pills1Img.enabled = true;
+            pills2Img.enabled = true;
             pills1.enabled = true;
             pills2.enabled = true;
+        } else {
+            pills1Img.enabled = false;
+            pills2Img.enabled = false;
+            pills1.enabled = false;
+            pills2.enabled = false;
         }
     }
 
@@ -63,7 +74,7 @@ public class MedicineRoomDialogue : MonoBehaviour
                 PlayerPrefs.SetInt("HammockRoomDialogue", 6);
                 PlayerPrefs.Save();
             }
-        PlayerPrefs.SetInt("LeftPills", 1);
+        PlayerPrefs.SetInt("Pills1", 1);
         PlayerPrefs.Save();
     }
 
@@ -77,7 +88,7 @@ public class MedicineRoomDialogue : MonoBehaviour
                 PlayerPrefs.SetInt("HammockRoomDialogue", 6);
                 PlayerPrefs.Save();
             }
-        PlayerPrefs.SetInt("RightPills", 1);
+        PlayerPrefs.SetInt("Pills2", 1);
         PlayerPrefs.Save();
     }
 

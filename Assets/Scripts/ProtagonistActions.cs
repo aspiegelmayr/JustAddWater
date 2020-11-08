@@ -6,9 +6,6 @@ using System.Web;
 
 public class ProtagonistActions : MonoBehaviour
 {
-    public TextAsset textFile;
-    
-    public string jsonFilePath;
 
     public GameObject speechBubble;
     public Button hideSpeechBubbleBtn;
@@ -31,6 +28,8 @@ public class ProtagonistActions : MonoBehaviour
     public static bool sliderPuzzleWon;
 
     public static bool PipePuzzleWon;
+
+    public Sprite keyImg, waterImg, pills1Img, pills2Img;
 
 
     void Start()
@@ -105,11 +104,27 @@ public class ProtagonistActions : MonoBehaviour
         {
             inventory.SetActive(true);
             inventoryShown = true;
+            UpdateInventory();
         }
         else
         {
             inventory.SetActive(false);
             inventoryShown = false;
+        }
+    }
+
+    void UpdateInventory(){
+        if(PlayerPrefs.HasKey("HasKey") && PlayerPrefs.GetInt("HasKey") == 1){
+            inventorySpaces[0].image.sprite = keyImg;
+        }
+        if(PlayerPrefs.HasKey("Water") && PlayerPrefs.GetInt("Water") == 1){
+            inventorySpaces[3].image.sprite = waterImg;
+        }
+        if(PlayerPrefs.HasKey("Pills1") && PlayerPrefs.GetInt("Pills1") == 1){
+            inventorySpaces[1].image.sprite = pills1Img;
+        }
+        if(PlayerPrefs.HasKey("Pills2") && PlayerPrefs.GetInt("Pills2") == 1){
+            inventorySpaces[2].image.sprite = pills2Img;
         }
     }
 
