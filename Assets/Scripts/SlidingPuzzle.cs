@@ -213,6 +213,8 @@ public class SlidingPuzzle : MonoBehaviour
         puzzleTiles[6].transform.position.x == -3 && puzzleTiles[6].transform.position.y == -1.9 &&
         puzzleTiles[7].transform.position.x == 0 && puzzleTiles[7].transform.position.y == -1.9){
             ProtagonistActions.sliderPuzzleWon = true;
+            PlayerPrefs.SetInt("SliderPuzzleSolved", 1);
+            PlayerPrefs.Save();
             return true;
         }
         return false;

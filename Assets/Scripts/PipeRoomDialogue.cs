@@ -28,7 +28,7 @@ public class PipeRoomDialogue : MonoBehaviour
         this.responses = new List<Quote>();
         speechBox.SetActive(false);
         index = 0;
-        if(PlayerPrefs.GetInt("SliderPuzzleSolved") == 1){
+        if(PlayerPrefs.GetInt("PipePuzzleSolved") == 1){
             SetFirstDialogue();
         }
         next.onClick.AddListener (ShowNext);
@@ -46,7 +46,7 @@ public class PipeRoomDialogue : MonoBehaviour
     void SetFirstDialogue(){
             this.responses.Add(new Quote("Generaloberstfeldwebel Leutnant S.T. Einadler", "Stein Stein Aaaadler!"));
             this.responses.Add(new Quote("Oma Spiegelafro", "Sehr gut. Gute Arbeit."));
-            this.responses.Add(new Quote("Ler?"));
+            this.responses.Add(new Quote("Generaloberstfeldwebel Leutnant S.T. Einadler", "Ler?"));
             this.responses.Add(new Quote("Oma Spiegelafro", "Ja, ich gehe wieder zur Ausgabe, sobald ich mich aufgefrischt habe."));
             this.responses.Add(new Quote("Generaloberstfeldwebel Leutnant S.T. Einadler", "Adler Stein, Stein Steinadler?"));
             this.responses.Add(new Quote("Oma Spiegelafro", "Natürlich. Aber so viel sollte klar sein."));
@@ -87,4 +87,5 @@ public class PipeRoomDialogue : MonoBehaviour
             speechBox.SetActive(false);
         }
     }
+}
 }

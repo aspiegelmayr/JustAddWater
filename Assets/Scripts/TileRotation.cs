@@ -128,6 +128,9 @@ public class TileRotation : MonoBehaviour
             {
                 gameIsActive = false;
                 ProtagonistActions.PipePuzzleWon = true;
+                PlayerPrefs.SetInt("PipePuzzleSolved", 1);
+                PlayerPrefs.SetInt("CafeteriaDialogue", 3);
+                PlayerPrefs.Save();
                 Debug.Log("game won");
             }
             else

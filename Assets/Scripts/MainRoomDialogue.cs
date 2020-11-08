@@ -101,20 +101,20 @@ public class MainRoomDialogue : MonoBehaviour
             this.responses.Add(new Quote("Generaloberstfeldwebel Leutnant S.T. Einadler", "Stein? Steinadler!"));
             this.responses.Add(new Quote("Kohlkopf", "Jawohl, Herr Generaloberstfeldwebel Leutnant S. T. Einadler! Ich sollte mich wirklich um den Rohrbruch kümmern."));
         }
-        if(PlayerPrefs.GetInt("MainRoomDialogue" == 3)){
+        if(PlayerPrefs.GetInt("MainRoomDialogue") == 3){
             this.responses.Clear();
             this.responses.Add(new Quote("Kohlkopf", "Herr Generaloberstfeldwebel Leutnant S. T. Einadler. Ich melde mich zurück von meiner Mission."));
-            this.responses.Add(new Quote("Stein. Adler Steinstein, Stein?"));
+            this.responses.Add(new Quote("Generaloberstfeldwebel Leutnant S.T. Einadler", "Stein. Adler Steinstein, Stein?"));
             this.responses.Add(new Quote("Kohlkopf", "“Wie es gelaufen ist? Gut. Besser, wenn Streusel seinen Job ernst nehmen würde."));
             this.responses.Add(new Quote("Generaloberstfeldwebel Leutnant S.T. Einadler", "Adler ..."));
             this.responses.Add(new Quote("Kohlkopf", "Na wenn Sie das sagen."));
         }
-        if(PlayerPrefs.GetInt("MainRoomDialogue" == 4)){
+        if(PlayerPrefs.GetInt("MainRoomDialogue") == 4){
              this.responses.Clear();
             this.responses.Add(new Quote("Kohlkopf", "Herr Generaloberstfeldwebel Leutnant S. T. Einadler."));
-            this.responses.Add(new Quote("Stein?"));
+            this.responses.Add(new Quote("Generaloberstfeldwebel Leutnant S.T. Einadler", "Stein?"));
             this.responses.Add(new Quote("Kohlkopf", "Ich … wollte nur fragen, wie es Ihnen geht."));
-            this.responses.Add(new Quote("Adler. Adler Adler Adler. Steinadler Stein."));
+            this.responses.Add(new Quote("Generaloberstfeldwebel Leutnant S.T. Einadler", "Adler. Adler Adler Adler. Steinadler Stein."));
             this.responses.Add(new Quote("Kohlkopf", "Ja Ihren Pflanzen scheint es wunderbar zu gehen."));
         }
         ShowFirstText();
@@ -130,7 +130,7 @@ public class MainRoomDialogue : MonoBehaviour
         }
         else
         {
-            if(PlayerPrefs.GetInt("MainRoomDialogue" == 1)){
+            if(PlayerPrefs.GetInt("MainRoomDialogue")== 1){
             PlayerPrefs.SetInt("MainRoomDialogue", 2);
             } else {
                 PlayerPrefs.SetInt("MainRoomDialogue", 4); //idle

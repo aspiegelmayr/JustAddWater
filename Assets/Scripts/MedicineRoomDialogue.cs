@@ -44,7 +44,6 @@ public class MedicineRoomDialogue : MonoBehaviour
         next.onClick.AddListener (ShowNext);
         pills1.onClick.AddListener(GrabLeftPills);
         pills2.onClick.AddListener(GrabRightPills);
-        //TODO: Add SliderPuzzleSolved = 0 ] 1 to playerprefs
         if(PlayerPrefs.GetInt("SliderPuzzleSolved") == 1){
             pills1.enabled = true;
             pills2.enabled = true;
@@ -58,7 +57,7 @@ public class MedicineRoomDialogue : MonoBehaviour
         if(!PlayerPrefs.HasKey("numberOfPills") || PlayerPrefs.GetInt("numberOfPills") == 0){
             PlayerPrefs.SetInt("numberOfPills", 1);
             PlayerPrefs.SetInt("HammockRoomDialogue", 5);
-            PlayerPrefs.Save(); //TODO: Text
+            PlayerPrefs.Save();
             } else {
                 PlayerPrefs.SetInt("numberOfPills", 2);
                 PlayerPrefs.SetInt("HammockRoomDialogue", 6);

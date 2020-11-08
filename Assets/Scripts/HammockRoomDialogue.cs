@@ -44,12 +44,11 @@ public class HammockRoomDialogue : MonoBehaviour
     }
 
     void SetFirstDialogue(){
-        if(PlayerPrefs.GetInt("MedicineRoomDialogue") < 2){
+        this.responses.Clear();
             this.responses.Add(new Quote("Kohlkopf", "Hallo, Streusel."));
             this.responses.Add(new Quote("Streusel", "Lass mich in Ruhe, ich bin beschäftigt."));
             this.responses.Add(new Quote("Kohlkopf", "Und womit genau?"));
             this.responses.Add(new Quote("Streusel", "Sieht man doch, damit, meine Arbeit nicht zu tun."));
-        }
             ShowFirstText();
     }
 
@@ -89,7 +88,6 @@ public class HammockRoomDialogue : MonoBehaviour
 
         if(PlayerPrefs.GetInt("HammockRoomDialogue") == 4){
             notDone = true;
-            //TODO: set Hammockroomdialogue to 5 when picking up first pills
             this.responses.Clear();
             this.responses.Add(new Quote("Streusel", "Na, wirds bald? Die rot-grüne Dose."));
         }
@@ -122,6 +120,11 @@ public class HammockRoomDialogue : MonoBehaviour
         }
         else
         {
+            if(PlayerPrefs.GetInt("HammockRoomDialogue") == 1 || PlayerPrefs.GetInt("HammockRoomDialogue") == 0){
+                speechBox.SetActive(false);
+                index = 0;
+            }
+            else {
             if(!notDone){
             int newIndex = PlayerPrefs.GetInt("HammockRoomDialogue") + 1;
             PlayerPrefs.SetInt("HammockRoomDialogue", newIndex);
@@ -133,6 +136,7 @@ public class HammockRoomDialogue : MonoBehaviour
             PlayerPrefs.Save();
             }
             speechBox.SetActive(false);
+        }
         }
     }
 }

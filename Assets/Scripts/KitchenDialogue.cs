@@ -11,13 +11,31 @@ public class KitchenDialogue : MonoBehaviour
     public Button next;
     private int index;
     public GameObject speechBox;
+    public Image noodles;
 
     void Start(){
+        noodles.enabled = false;
         index = 0;
+        next.onClick.AddListener(ShowNext);
+        if(PlayerPrefs.GetInt("KitchenDialogue") == 1){
+            ShowFirstDialogue();
+        } else {
+            ShowOtherDialogue();
+        }
+    }
+
+    void ShowFirstDialogue(){
         this.responses.Add(new Quote("Kohlkopf", "Hm, Wasser. Ich brauche Wasser."));
         this.responses.Add(new Quote("Kohlkopf", "Ich werd wohl zur Ausgabe schauen müssen."));
-        next.onClick.AddListener(ShowNext);
         ShowFirstText();
+    }
+
+    void ShowOtherDialogue(){
+        this.responses.Clear();
+        this.responses.Add(new Quote("Kohlkopf", "Endlich, endlich, endlich."));
+        this.responses.Add(new Quote("Kohlkopf", "Es hat lange gedauert, aber jetzt ..."));
+        this.responses.Add(new Quote("Kohlkopf", "Jetzt ist es soweit."));
+        noodles.enabled = true;
     }
 
     void ShowFirstText(){
