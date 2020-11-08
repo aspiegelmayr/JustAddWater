@@ -98,15 +98,18 @@ public class TileRotation : MonoBehaviour
 
     bool CheckSolution()
     {
-        foreach (var angle in rotationAngles)
+        for (int i = 0; i < rotationAngles.Length; i++)
         {
-            Debug.Log (angle);
-            if (angle % 360 != 0)
+            if(i == 8 || i == 17 || i == 9 || i == 16 || i == 24 || i == 32 || i == 33 || i == 34 || i == 26 || i == 27 || i == 35 || i == 43 || i == 44 || i == 36 || i == 28 || 
+            i == 29 || i == 37 || i == 38 || i == 39 || i == 19 || i == 11 || i == 12 || i == 4 || i == 5 || i == 6 || i == 7 || i == 14 || i == 15 || i == 22 || i == 30){
+            if (rotationAngles[i] % 360 != 0)
             {
                 return false;
             }
         }
-        return true;
+        
+    }
+    return true;
     }
 
     int RandomlyRotate(Button square)
